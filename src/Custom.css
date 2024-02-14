@@ -32,7 +32,12 @@ code {
   max-width: 100%;
 
 }
-.btn_custom{
+.btn_custom_client{
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.btn_custom_pen{
   margin-right: 10px;
 }
 
@@ -43,4 +48,8 @@ code {
 .Logo_style{
   color: #000;
   margin-left: 10px;
+}
+
+.btn-primary {
+  padding-bottom: 8px;
 }
