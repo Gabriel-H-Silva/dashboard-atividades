@@ -1,6 +1,7 @@
 import { Container, Row, Col, Modal, Button, Form, InputGroup} from "react-bootstrap";
 import React, { useState } from 'react';
 
+
 function ContentTemplateModal(props) {
   const [validated, setValidated] = useState(false);
 
