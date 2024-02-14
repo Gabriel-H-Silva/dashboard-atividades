@@ -39,7 +39,7 @@ function TemplateDashbord() {
                 <td></td>
                 <td>Aberto</td>
                 <td className='text-center'>
-                  <Button variant="dark" className="btn_custom" onClick={() => setModalShow(true)}><FaPencil /></Button>
+                  <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow(true)}><FaPencil /></Button>
                   <Button variant="dark"><FaTrash /></Button>
                 </td>
               </tr>
@@ -50,7 +50,7 @@ function TemplateDashbord() {
                 <td>Hitalu</td>
                 <td>Em Andamento</td>
                 <td className='text-center'>
-                  <Button variant="dark" className="btn_custom" onClick={() => setModalShow(true)}><FaPencil /></Button>
+                  <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow(true)}><FaPencil /></Button>
                   <Button variant="dark"><FaTrash /></Button>
                 </td>
               </tr>
@@ -61,7 +61,7 @@ function TemplateDashbord() {
                 <td>Luiz</td>
                 <td>Aguardando - Desenvolvimento</td>
                 <td className='text-center'>
-                  <Button variant="dark" className="btn_custom" onClick={() => setModalShow(true)}><FaPencil /></Button>
+                  <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow(true)}><FaPencil /></Button>
                   <Button variant="dark"><FaTrash /></Button>
                 </td>
               </tr>

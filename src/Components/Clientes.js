@@ -3,6 +3,7 @@ import { Container, Row, Col, Button, Table, InputGroup, Form } from "react-boot
 import ClientModal from "./Modals/ClientModal";
 import ConfirmModal from './Modals/ConfirmModal.js';
 import {data} from "../data.js";
+import { FaSearch } from "react-icons/fa";
 import { FaPencil,FaTrash  } from "react-icons/fa6";
 
 function Clientes(){
@@ -18,14 +19,16 @@ function Clientes(){
             <Col xs={12}>
             <h1 className="Title_custom">Clientes - Suporte</h1>
             </Col>
-                <Col xs={3}>
+                <Col xs={2}>
                     <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow(true)}>Novo Cliente</Button>
                     
                  </Col>
-            <Col xs={9}>
+            <Col xs={7}>
                 <Form>
+                
                     <InputGroup>
-                        <Form.Control onChange={(e) => setSearch(e.target.value)} placeholder='Filtro' />
+                    <FaSearch className='search-ico' />
+                        <Form.Control className='filter-custom' onChange={(e) => setSearch(e.target.value)} placeholder='Filtro'/>
                     </InputGroup>
                 </Form>
             </Col>    
@@ -43,9 +46,9 @@ function Clientes(){
                 </thead>
                 <tbody>
                 {data.filter((item) => {
-                    return search.toLowerCase() === '' 
+                    return search.toLowerCase().toUpperCase() === '' 
                     ? item 
-                    : item.Loja.toLowerCase().includes(search);
+                    : item.Loja.toUpperCase().includes(search.toUpperCase());
                 }).map((item) => (
                 <tr key={item.id}>
                     <td>{item.Status}</td>
@@ -53,6 +56,7 @@ function Clientes(){
                     <td>{item.Cidade}</td>
                     <td>{item.UF}</td>
                     <td className='text-center'>
+                    <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow(true)}><FaPencil /></Button>
                     <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow2(true)}><FaTrash /></Button>  
                     </td>
                 </tr>
