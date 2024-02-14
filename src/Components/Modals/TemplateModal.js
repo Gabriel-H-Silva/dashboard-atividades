@@ -1,7 +1,7 @@
 import { Container, Row, Col, Modal, Button, Form, InputGroup} from "react-bootstrap";
 import React, { useState } from 'react';
 
-function ContentModal(props) {
+function ContentTemplateModal(props) {
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
@@ -128,4 +128,4 @@ function ContentModal(props) {
   );
 }
 
-export default ContentModal;
+export default ContentTemplateModal;

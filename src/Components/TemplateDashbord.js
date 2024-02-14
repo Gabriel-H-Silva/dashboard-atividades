@@ -1,25 +1,12 @@
 import { Container, Row, Col, Button} from "react-bootstrap";
 import Table from 'react-bootstrap/Table';
 import { FaPencil,FaTrash  } from "react-icons/fa6";
-import ContentModal from "./Modals/ContentModal";
+import TemplateModal from "./Modals/TemplateModal";
 import React, { useState } from 'react';
 
-function Content_teste() {
+function TemplateDashbord() {
   // Variavel do modal para alternar a sua exibição 
   const [modalShow, setModalShow] = useState(false);
-
-  const [validated, setValidated] = useState(false);
-
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    setValidated(true);
-  };
-  
 
   return (
 
@@ -38,7 +25,7 @@ function Content_teste() {
             <thead>
               <tr>
                 <th>Cliente</th>
-                <th>Atividade2</th>
+                <th>Atividade</th>
                 <th>Profissional</th>
                 <th>Status</th>
                 <th>Ações</th>
@@ -85,10 +72,10 @@ function Content_teste() {
         </Col>
       </Row>
     </Container>
-    {/* Modal de edição ou criação de chamado | localizado na pasta Componentents/Modals/ContentModal */}
-    <ContentModal show={modalShow} onHide={() => setModalShow(false)} />
+    {/* Modal de edição ou criação de chamado | localizado na pasta Componentents/Modals/TemplateModal */}
+    <TemplateModal show={modalShow} onHide={() => setModalShow(false)} />
     </>
   );
 }
 
-export default Content_teste;
+export default TemplateDashbord;

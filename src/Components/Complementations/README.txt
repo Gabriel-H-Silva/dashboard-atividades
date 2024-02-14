@@ -1,0 +1,1 @@
+esse é para armazenar complementaçoes de componente
