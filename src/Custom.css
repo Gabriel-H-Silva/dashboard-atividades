@@ -34,7 +34,6 @@ code {
 }
 .btn_custom_client{
   margin-right: 10px;
-  margin-bottom: 10px;
 }
 
 .btn_custom_pen{
@@ -52,4 +51,8 @@ code {
 
 .btn-primary {
   padding-bottom: 8px;
+}
+
+.table-custom {
+  margin-top: 10px;
 }

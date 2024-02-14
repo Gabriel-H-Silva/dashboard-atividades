@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Button, Table, InputGroup, Form } from "react-bootstrap";
 import ClientModal from "./Modals/ClientModal";
+import ConfirmModal from './Modals/ConfirmModal.js';
 import {data} from "../data.js";
+import { FaPencil,FaTrash  } from "react-icons/fa6";
 
 function Clientes(){
 
     const [modalShow, setModalShow] = useState(false);
+    const [modalShow2, setModalShow2] = useState(false);
     const [search, setSearch] = useState('');
 
   return (
@@ -17,7 +20,7 @@ function Clientes(){
             </Col>
                 <Col xs={3}>
                     <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow(true)}>Novo Cliente</Button>
-                    <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow(true)}>Remover Cliente</Button>
+                    
                  </Col>
             <Col xs={9}>
                 <Form>
@@ -29,7 +32,7 @@ function Clientes(){
         </Row>
     <Row>    
         <Col>   
-            <Table striped bordered hover>
+            <Table className='table-custom' striped bordered hover >
                 <thead> 
                 <tr>
                     <th>Status</th>
@@ -49,7 +52,8 @@ function Clientes(){
                     <td>{item.Loja}</td>
                     <td>{item.Cidade}</td>
                     <td>{item.UF}</td>
-                    <td className='text-center'>  
+                    <td className='text-center'>
+                    <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow2(true)}><FaTrash /></Button>  
                     </td>
                 </tr>
                 ))}
@@ -61,6 +65,7 @@ function Clientes(){
     </Row>
         </Container>
         <ClientModal show={modalShow} onHide={() => setModalShow(false)} />
+        <ConfirmModal show={modalShow2} onHide={() => setModalShow2(false)} />
     </>
   );
 };
