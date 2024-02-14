@@ -53,8 +53,9 @@ function TemplateDashbord() {
                     <td>{item.Profissional}</td>
                     <td>{item.Status}</td>
                     <td className='text-center'>
+                      <Button variant="info">Descrição</Button>{' '}
                       <Button variant="dark" className="btn_custom" onClick={() => setModalShow(true)}><FaPencil /></Button>
-                      <Button variant="outline-dark"><FaTrash /></Button>
+                      <Button variant="outline-dark"><FaTrash /></Button>                    
                     </td> 
                 </tr>
                 ))}
