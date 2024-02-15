@@ -4,10 +4,12 @@ import { FaPencil,FaTrash  } from "react-icons/fa6";
 import TemplateModal from "./Modals/TemplateModal";
 import React, { useState } from 'react';
 import { dataChamado } from "../dataChamado";
+import ConfirmTrashModal from "./Modals/TemplateConfirmTrashModal";
 
 function TemplateDashbord() {
   // Variavel do modal para alternar a sua exibição 
   const [modalShow, setModalShow] = useState(false);
+  const [modalShowTrash, setModalShowTrash] = useState(false);
   const [search, setSearch] = useState('');
 
   return (
@@ -56,7 +58,7 @@ function TemplateDashbord() {
                     <td className='text-center'>
                       <Button variant="info">Descrição</Button>{' '}
                       <Button variant="dark" className="btn_custom" onClick={() => setModalShow(true)}><FaPencil /></Button>
-                      <Button variant="outline-dark"><FaTrash /></Button>                    
+                      <Button variant="outline-dark" className="btn_custom" onClick={() => setModalShowTrash(true)}><FaTrash /></Button>                    
                     </td> 
                 </tr>
                 ))}
@@ -68,6 +70,7 @@ function TemplateDashbord() {
     </Container>
     {/* Modal de edição ou criação de chamado | localizado na pasta Componentents/Modals/TemplateModal */}
     <TemplateModal show={modalShow} onHide={() => setModalShow(false)} />
+    <ConfirmTrashModal show={modalShowTrash} onHide={() => setModalShowTrash(false)} />
     </>
   );
 }
