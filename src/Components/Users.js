@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Button, Table, InputGroup, Form } from "react-bootstrap";
-import ClientModal from "./Modals/ClientModal";
+import UsersModal from "./Modals/UsersModal.js";
 import ConfirmModal from './Modals/ConfirmModal.js';
-import {data} from "../data.js";
-import { FaSearch } from "react-icons/fa";
+import {data} from "../dataUsers.js";
 import { FaPencil,FaTrash  } from "react-icons/fa6";
 
-function Clientes(){
+function Users(){
 
     const [modalShow, setModalShow] = useState(false);
     const [modalShow2, setModalShow2] = useState(false);
@@ -17,18 +16,17 @@ function Clientes(){
         <Container className='Custom_Container'>
         <Row>
             <Col xs={12}>
-            <h1 className="Title_custom">Clientes - Suporte</h1>
+            <h1 className="Title_custom">Usuarios</h1>
             </Col>
-                <Col xs={2}>
-                    <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow(true)}>Novo Cliente</Button>
+                <Col xs={3}>
+
+                    <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow(true)}>Novo</Button>
                     
                  </Col>
-            <Col xs={7}>
+            <Col xs={9}>
                 <Form>
-                
                     <InputGroup>
-                    <FaSearch className='search-ico' />
-                        <Form.Control className='filter-custom' onChange={(e) => setSearch(e.target.value)} placeholder='Filtro'/>
+                        <Form.Control onChange={(e) => setSearch(e.target.value)} placeholder='Filtro' />
                     </InputGroup>
                 </Form>
             </Col>    
@@ -38,25 +36,23 @@ function Clientes(){
             <Table className='table-custom' striped bordered hover >
                 <thead> 
                 <tr>
-                    <th>Status</th>
-                    <th>Loja</th>
-                    <th>Cidade</th>
-                    <th>UF</th>
+                    <th>Id</th>
+                    <th>Técnico</th>
+                    <th>Cargo</th>
+                    <th>Eventos</th>
                 </tr>
                 </thead>
                 <tbody>
                 {data.filter((item) => {
-                    return search.toLowerCase().toUpperCase() === '' 
+                    return search.toLowerCase() === '' 
                     ? item 
-                    : item.Loja.toUpperCase().includes(search.toUpperCase());
+                    : item.Tecnico.toLowerCase().includes(search);
                 }).map((item) => (
-                <tr key={item.id}>
-                    <td>{item.Status}</td>
-                    <td>{item.Loja}</td>
-                    <td>{item.Cidade}</td>
-                    <td>{item.UF}</td>
+                <tr>
+                    <td>{item.Id}</td>
+                    <td>{item.Tecnico}</td>
+                    <td>{item.Cargo}</td>
                     <td className='text-center'>
-                    <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow(true)}><FaPencil /></Button>
                     <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow2(true)}><FaTrash /></Button>  
                     </td>
                 </tr>
@@ -68,10 +64,10 @@ function Clientes(){
         </Col>
     </Row>
         </Container>
-        <ClientModal show={modalShow} onHide={() => setModalShow(false)} />
+        <UsersModal show={modalShow} onHide={() => setModalShow(false)} />
         <ConfirmModal show={modalShow2} onHide={() => setModalShow2(false)} />
     </>
   );
 };
 
-export default Clientes;
+export default Users;

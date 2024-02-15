@@ -20,4 +20,5 @@ export const dataChamado = [
         "Profissional": "Luiz",
         "Status": "Aguardando Desenvolvimento",
         "Descricao": ""
-      }]
+      }
+    ]
