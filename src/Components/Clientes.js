@@ -2,15 +2,21 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Button, Table, InputGroup, Form } from "react-bootstrap";
 import ClientModal from "./Modals/ClientModal";
 import ConfirmModal from './Modals/ConfirmModal.js';
-import {data} from "../data.js";
+import {dataClient} from "../data.js";
 import { FaSearch } from "react-icons/fa";
 import { FaPencil,FaTrash  } from "react-icons/fa6";
 
-function Clientes(){
+function Clientes() {
 
     const [modalShow, setModalShow] = useState(false);
     const [modalShow2, setModalShow2] = useState(false);
     const [search, setSearch] = useState('');
+    const [data, setData] = useState (dataClient);
+    const [sorting, setSorting] = useState({ field: 'Loja', order: 'asc'});
+    const sort = (field) => {
+        const order = field === sorting.field && sorting.order === 'asc' ? 'desc' : 'asc'
+        setSorting({ field, order });
+    }       
 
   return (
         <>
@@ -38,29 +44,37 @@ function Clientes(){
             <Table className='table-custom' striped bordered hover >
                 <thead> 
                 <tr>
-                    <th>Status</th>
-                    <th>Loja</th>
+                    <th onClick={() => sort('Status')}>Status</th>
+                    <th onClick={() => sort('Loja')}>Loja</th>
                     <th>Cidade</th>
                     <th>UF</th>
                 </tr>
                 </thead>
                 <tbody>
-                {data.filter((item) => {
-                    return search.toLowerCase() === '' 
-                    ? item 
-                    : item.Loja.toLowerCase().includes(search.toLowerCase());
+                {dataClient.filter((item) => {
+                        return search.toLowerCase() === '' 
+                        ? item 
+                        : item.Loja.toLowerCase().includes(search.toLowerCase());
+                }).sort((a, b) => {
+                    if (sorting.order === 'asc') {
+                        return a[sorting.field] > b[sorting.field] ? 1 : -1;
+                    } else {
+                        return a[sorting.field] < b[sorting.field] ? 1 : -1;
+                    }
+                    
                 }).map((item) => (
-                <tr key={item.id}>
-                    <td>{item.Status}</td>
-                    <td>{item.Loja}</td>
-                    <td>{item.Cidade}</td>
-                    <td>{item.UF}</td>
-                    <td className='text-center'>
-                    <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow(true)}><FaPencil /></Button>
-                    <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow2(true)}><FaTrash /></Button>  
-                    </td>
-                </tr>
-                ))}
+                    <tr key={item.id}>
+                        <td>{item.Status}</td>
+                        <td>{item.Loja}</td>
+                        <td>{item.Cidade}</td>
+                        <td>{item.UF}</td>
+                        <td className='text-center'>
+                        <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow(true)}><FaPencil /></Button>
+                        <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow2(true)}><FaTrash /></Button>  
+                        </td>
+                    </tr>
+                    ))}
+                
                 
                 </tbody>
             </Table>
