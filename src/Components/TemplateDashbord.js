@@ -5,12 +5,15 @@ import TemplateModal from "./Modals/TemplateModal";
 import React, { useState } from 'react';
 import { dataChamado } from "../dataChamado";
 import ConfirmTrashModal from "./Modals/TemplateConfirmTrashModal";
+import DescriptionModal from "./Modals/DescriptionModal";
+import { MdOutlineDescription } from "react-icons/md";
 
 function TemplateDashbord() {
   // Variavel do modal para alternar a sua exibição 
   const [modalShow, setModalShow] = useState(false);
   const [modalShowTrash, setModalShowTrash] = useState(false);
   const [search, setSearch] = useState('');
+  const [modalDescription, setModalDescription] = useState(false);
 
   return (
     <>
@@ -19,10 +22,13 @@ function TemplateDashbord() {
         <Col xs={12}>
           <h1 className="Title_custom">Chamados - Suporte</h1>
         </Col>
-        <Col xs={3}>
+        <Col xs={2}>
           <Button variant="dark" className="btn_custom_client" onClick={() => setModalShow(true)}>Novo Chamado</Button>
         </Col>
-        <Col xs={9}>
+        <Col xs={2}>
+        <Button variant="info" onClick={() => (true)}>Gerar Relatório</Button>
+        </Col>
+        <Col xs={8}>
           <Form>
             <InputGroup>
               <Form.Control onChange={(e) => setSearch(e.target.value)} placeholder='Filtro' />
@@ -56,9 +62,9 @@ function TemplateDashbord() {
                     <td>{item.Profissional}</td>
                     <td>{item.Status}</td>
                     <td className='text-center'>
-                      <Button variant="info">Descrição</Button>{' '}
-                      <Button variant="dark" className="btn_custom" onClick={() => setModalShow(true)}><FaPencil /></Button>
-                      <Button variant="outline-dark" className="btn_custom" onClick={() => setModalShowTrash(true)}><FaTrash /></Button>                    
+                      <Button variant="info" onClick={() => setModalDescription(true)}> <MdOutlineDescription /> </Button>{' '}
+                      <Button variant="dark" onClick={() => setModalShow(true)}><FaPencil /></Button>{' '}
+                      <Button variant="outline-dark" onClick={() => setModalShowTrash(true)}><FaTrash /></Button>{' '}                    
                     </td> 
                 </tr>
                 ))}
@@ -71,6 +77,7 @@ function TemplateDashbord() {
     {/* Modal de edição ou criação de chamado | localizado na pasta Componentents/Modals/TemplateModal */}
     <TemplateModal show={modalShow} onHide={() => setModalShow(false)} />
     <ConfirmTrashModal show={modalShowTrash} onHide={() => setModalShowTrash(false)} />
+    <DescriptionModal show={modalDescription} onHide={() => setModalDescription(false)} />
     </>
   );
 }

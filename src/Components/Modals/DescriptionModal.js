@@ -1,19 +1,19 @@
 import { Container, Row, Col, Modal, Button, Form, ModalBody} from "react-bootstrap";
 
 
-function ConfirmTrashModal(props) {
+function DescriptionModal(props) {
 
   return (
     
     <Modal  {...props} aria-labelledby="contained-modal-title-vcenter" >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Remover Chamado
+          Descrição do Chamado
         </Modal.Title>
       </Modal.Header>
-    <ModalBody>
-        Deseja remover este Chamado?
-    </ModalBody>
+      <Form.Group className="mb-3" controlId="formTextDescription">
+        <Form.Control as="textarea" rows={3} placeholder="Escreva aqui" />
+      </Form.Group>
       <Modal.Footer>
       <Button variant="outline-primary"> Confirmar</Button>
 
@@ -25,4 +25,4 @@ function ConfirmTrashModal(props) {
   );
 }
 
-export default ConfirmTrashModal;
+export default DescriptionModal;
