@@ -17,4 +17,5 @@ export const dataChamado = [
         "Atividade": "Erro...",
         "Profissional": "Luiz",
         "Status": "Aguardando Desenvolvimento"
-      }]
+      }
+    ]
