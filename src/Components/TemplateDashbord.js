@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { dataChamado } from "../dataChamado";
 
 function TemplateDashbord() {
-  // Variavel do modal para alternar a sua exibição 
+  // Variavel do modal para alternar a sua exibição. 
   const [modalShow, setModalShow] = useState(false);
   const [search, setSearch] = useState('');
 
