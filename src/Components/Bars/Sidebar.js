@@ -55,6 +55,10 @@ function Sidebar(props) {
                                 <Nav.Link onClick={() => onComponentChange('UsersIO') + setShow(false)}>
                                         Usuarios
                                 </Nav.Link>
+
+                                <Nav.Link onClick={() => onComponentChange('AllRequests') + setShow(false)}>
+                                        Todos os Chamados
+                                </Nav.Link>
                             
                             </Nav>
 

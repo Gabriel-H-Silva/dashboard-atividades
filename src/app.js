@@ -4,6 +4,7 @@ import Sidebar from '../src/Components/Bars/Sidebar';
 import TemplateDashbord from './Components/TemplateDashbord';
 import Clientes from './Components/Clientes';
 import UsersIO from './Components/Users';
+import AllRequests from './Components/AllRequests';
 
 function App() {
   const [currentComponent, setCurrentComponent] = useState('TemplateDashbord');
@@ -21,6 +22,8 @@ function App() {
         return <Clientes />;
       case 'UsersIO':
         return <UsersIO />;
+      case 'AllRequests':
+        return <AllRequests />;
       default:
         return <TemplateDashbord />;
     }
