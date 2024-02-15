@@ -46,9 +46,9 @@ function Clientes(){
                 </thead>
                 <tbody>
                 {data.filter((item) => {
-                    return search.toLowerCase().toUpperCase() === '' 
+                    return search.toLowerCase() === '' 
                     ? item 
-                    : item.Loja.toUpperCase().includes(search.toUpperCase());
+                    : item.Loja.toLowerCase().includes(search.toLowerCase());
                 }).map((item) => (
                 <tr key={item.id}>
                     <td>{item.Status}</td>
