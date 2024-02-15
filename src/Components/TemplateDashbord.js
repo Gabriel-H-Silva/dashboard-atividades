@@ -43,7 +43,6 @@ function TemplateDashbord() {
             </thead>
             <tbody>
               {/* Cada tr desse vai ser um component que vai ser preenchido com o retorno da API */}
-            </tbody>
                 {dataChamado.filter((item) => {
                     return search.toLowerCase() === '' 
                     ? item 
