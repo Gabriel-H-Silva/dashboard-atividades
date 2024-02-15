@@ -7,6 +7,7 @@ import { dataChamado } from "../dataChamado";
 import ConfirmTrashModal from "./Modals/TemplateConfirmTrashModal";
 import DescriptionModal from "./Modals/DescriptionModal";
 import { MdOutlineDescription } from "react-icons/md";
+import { FaSearch } from "react-icons/fa";
 
 function TemplateDashbord() {
   // Variavel do modal para alternar a sua exibição 
@@ -31,7 +32,8 @@ function TemplateDashbord() {
         <Col xs={8}>
           <Form>
             <InputGroup>
-              <Form.Control onChange={(e) => setSearch(e.target.value)} placeholder='Filtro' />
+            <FaSearch className='search-ico' />
+              <Form.Control className='filter-custom' onChange={(e) => setSearch(e.target.value)} placeholder='Filtro' />
             </InputGroup>
           </Form>
         </Col>    
@@ -39,7 +41,7 @@ function TemplateDashbord() {
       <Row>
         <Col>
           {/* Content Page */}
-          <Table striped bordered hover>
+          <Table className='table-custom' striped bordered hover>
             <thead>
               <tr>
                 <th>Cliente</th>
