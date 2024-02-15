@@ -56,3 +56,12 @@ code {
 .table-custom {
   margin-top: 10px;
 }
+
+.search-ico {
+  margin-right: 5px;
+  margin-top: 10px;
+}
+
+.filter-custom {
+  border: 1px solid black;
+}
