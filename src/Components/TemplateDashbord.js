@@ -56,7 +56,7 @@ function TemplateDashbord() {
                 {dataChamado.filter((item) => {
                     return search.toLowerCase() === '' 
                     ? item 
-                    : item.Loja.toLowerCase().includes(search);
+                    : item.Loja.toLowerCase().includes(search.toLowerCase());
                 }).map((item) => (
                 <tr key={item.id}>
                     <td>{item.Loja}</td>
