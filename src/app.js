@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Sidebar from '../src/Components/Bars/Sidebar';
 import TemplateDashbord from './Components/TemplateDashbord';
 import Clientes from './Components/Clientes';
+import UsersIO from './Components/Users';
 
 function App() {
   const [currentComponent, setCurrentComponent] = useState('TemplateDashbord');
@@ -18,6 +19,8 @@ function App() {
         return <TemplateDashbord />;
       case 'clientes':
         return <Clientes />;
+      case 'UsersIO':
+        return <UsersIO />;
       default:
         return <TemplateDashbord />;
     }
